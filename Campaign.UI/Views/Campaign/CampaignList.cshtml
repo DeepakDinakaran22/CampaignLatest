@@ -1,0 +1,647 @@
+﻿<div class="nk-app-root">
+    <div class="nk-apps-sidebar">
+        <div class="nk-apps-brand">
+            <a href="/campaign/list" class="logo-link">
+                <img class="logo-light logo-img" src="~/images/pads4logodiap.png" srcset="~/images/pads4logodiap.png 2x" alt="logo">
+                <img class="logo-dark logo-img" src="~/images/pads4logodiap.png" srcset="~/images/pads4logodiap.png 2x" alt="logo-dark">
+            </a>
+        </div>
+        <div class="nk-sidebar-element">
+            <div class="nk-sidebar-body">
+                <div class="nk-sidebar-content" data-simplebar>
+                    <div class="nk-sidebar-menu">
+                        <!-- Menu -->
+                        <ul class="nk-menu apps-menu">
+                            <li class="nk-menu-item" id="managecamp">
+                                <a href="/campaign/list" class="nk-menu-link" title="Manage Campaigns">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-calendar-booking"></em></span>
+                                </a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="html/apps/assets.html" class="nk-menu-link" title="Manage Assets - Network View">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-folder-list"></em></span>
+                                </a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="html/apps/asset_campaignview.html" class="nk-menu-link" title="Manage Assets - Campaign View">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-folders"></em></span>
+                                </a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="html/apps/playlist.html" class="nk-menu-link" title="Manage Playlists">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-list-index"></em></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- mains -->
+    <div class="nk-main ">
+        <!-- wraps -->
+        <div class="nk-wrap ">
+            <!-- main headers -->
+            <div class="nk-header nk-header-fixed is-light">
+                <div class="container-fluid">
+                    <div class="nk-header-wrap">
+                        <div class="nk-menu-trigger d-xl-none ml-n1">
+                            <a href="#" class="btn btn-icon btn-sm btn-primary" data-toggle="modal" data-target="#addEventPopup"><em class="icon ni ni-plus"></em></a>
+                        </div>
+                        <div class="nk-header-app-name">
+                            <div class="nk-header-app-info">
+
+                                <div class="nk-header-menu is-light">
+                                    <div class="nk-header-menu-inner">
+                                        <!-- Menu -->
+                                        <ul class="nk-menu nk-menu-main">
+                                            <li class="nk-menu-item">
+                                                <a href="#" class="nk-menu-link">
+                                                    <div class="nk-header-app-logo">
+                                                        <em class="icon ni ni-calendar-booking bg-green-dim"></em>
+                                                    </div>
+                                                    <div class="nk-block-head-content">
+                                                        <h3 class="nk-block-title page-title">Campaigns</h3>
+                                                    </div>
+                                                    <!--<span class="nk-menu-text">ASSETS</span>-->
+                                                </a>
+                                            </li>
+                                            <li><a href="#" class="btn btn-round btn-primary" data-toggle="modal" data-target="#addEventPopup"><em class="icon ni ni-plus"></em><span>New Campaign</span></a></li>
+
+                                            <li class="nk-menu-item has-sub">
+                                                <a href="#" class="nk-menu-link nk-menu-toggle">
+                                                    <div class="nk-header-app-logo">
+                                                        <em class="icon ni ni-network bg-green-dim"></em>
+                                                    </div>
+                                                    <span class="nk-menu-text" id="networkName" data-network="@ViewBag.SelectedNetwork">@ViewBag.networkName</span>
+                                                </a>
+                                                <ul class="nk-menu-sub">
+                                                    <li>
+                                                        <div id="collapseDVR3">
+                                                            <ejs-treeview id="listdata"  nodeSelected="onSelect">
+                                                                <e-treeview-fields dataSource="ViewBag.treeSource" id="id" parentId="pid" text="name" hasChildren="hasChild" expanded="expanded"></e-treeview-fields>
+                                                            </ejs-treeview>
+                                                        </div>
+
+                                                    </li>
+                                                </ul><!-- .nk-menu-sub -->
+                                            </li><!-- .nk-menu-item -->
+                                        </ul>
+                                        <!-- Menu -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nk-header-tools">
+                            <ul class="nk-quick-nav">
+                                <li class="dropdown list-apps-dropdown d-lg-none">
+                                    <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+                                        <div class="icon-status icon-status-na"><em class="icon ni ni-network"></em></div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                        <div class="dropdown-body">
+                                            <div id="collapseDVR3">
+                                                <div class="tree ">
+                                                    <ul>
+                                                        <li class="handsymbol">
+                                                            <span><i class="fa fa-folder-open"></i> Emaar</span>
+                                                            <ul>
+                                                                <li>
+                                                                    <span><i class="fa fa-minus-square"></i> Community</span>
+                                                                    <ul>
+                                                                        <li> <span> Demo1 </span> </li>
+                                                                        <li> <span> Demo2 </span> </li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>
+                                                                    <span><i class="fa fa-minus-square"></i> Down Town Dubai</span>
+                                                                    <ul>
+                                                                        <li> <span> Demo1 </span> </li>
+                                                                        <li> <span> Demo2 </span> </li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>
+                                                                    <span><i class="fa fa-minus-square"></i> The Dubai Mall</span>
+                                                                    <ul>
+                                                                        <li> <span> Digital Dominance</span> </li>
+                                                                        <li> <span> Metro </span> </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown chats-dropdown hide-mb-xs">
+                                    <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+                                        <div class="icon-status icon-status-na"><em class="icon ni ni-setting"></em></div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="#"><em class="icon ni ni-network"></em><span>Network Settings</span></a></li>
+                                                <li><a href="#"><em class="icon ni ni-play-circle"></em><span>Player Settings</span></a></li>
+                                                <li><a href="#"><em class="icon ni ni-activity-alt"></em><span>General Configurations</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown notification-dropdown">
+                                    <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+                                        <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
+                                        <div class="dropdown-head">
+                                            <span class="sub-title nk-dropdown-title">Notifications</span>
+                                            <a href="#">Mark All as Read</a>
+                                        </div>
+                                        <div class="dropdown-body">
+                                            <div class="nk-notification">
+                                                <div class="nk-notification-item dropdown-inner">
+                                                    <div class="nk-notification-icon">
+                                                        <em class="icon icon-circle bg-primary-dim ni ni-share"></em>
+                                                    </div>
+                                                    <div class="nk-notification-content">
+                                                        <div class="nk-notification-text">Iliash shared <span>Dashlite-v2</span> with you.</div>
+                                                        <div class="nk-notification-time">Just now</div>
+                                                    </div>
+                                                </div>
+                                                <div class="nk-notification-item dropdown-inner">
+                                                    <div class="nk-notification-icon">
+                                                        <em class="icon icon-circle bg-info-dim ni ni-edit"></em>
+                                                    </div>
+                                                    <div class="nk-notification-content">
+                                                        <div class="nk-notification-text">Iliash <span>invited</span> you to edit <span>DashLite</span> folder</div>
+                                                        <div class="nk-notification-time">2 hrs ago</div>
+                                                    </div>
+                                                </div>
+                                                <div class="nk-notification-item dropdown-inner">
+                                                    <div class="nk-notification-icon">
+                                                        <em class="icon icon-circle bg-primary-dim ni ni-share"></em>
+                                                    </div>
+                                                    <div class="nk-notification-content">
+                                                        <div class="nk-notification-text">You have shared <span>project v2</span> with Parvez.</div>
+                                                        <div class="nk-notification-time">7 days ago</div>
+                                                    </div>
+                                                </div>
+                                                <div class="nk-notification-item dropdown-inner">
+                                                    <div class="nk-notification-icon">
+                                                        <em class="icon icon-circle bg-success-dim ni ni-spark"></em>
+                                                    </div>
+                                                    <div class="nk-notification-content">
+                                                        <div class="nk-notification-text">Your <span>Subscription</span> renew successfully.</div>
+                                                        <div class="nk-notification-time">2 month ago</div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .nk-notification -->
+                                        </div><!-- .nk-dropdown-body -->
+                                        <div class="dropdown-foot center">
+                                            <a href="#">View All</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown list-apps-dropdown d-lg-none">
+                                    <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+                                        <div class="icon-status icon-status-na"><em class="icon ni ni-menu-circled"></em></div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                        <div class="dropdown-body">
+                                            <ul class="list-apps">
+                                                <li>
+                                                    <a href="html/apps/campaign.html">
+                                                        <span class="list-apps-media"><em class="icon ni ni-calendar-booking bg-primary text-white"></em></span>
+                                                        <span class="list-apps-title">Manage Campaigns</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="html/apps/assets.html">
+                                                        <span class="list-apps-media"><em class="icon ni ni-folder-list bg-info-dim"></em></span>
+                                                        <span class="list-apps-title">Manage Assets - Network View</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="html/apps/asset_campaignview.html">
+                                                        <span class="list-apps-media"><em class="icon ni ni-folders bg-purple-dim"></em></span>
+                                                        <span class="list-apps-title">Manage Assets - Campaign View</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="html/apps/playlist.html">
+                                                        <span class="list-apps-media"><em class="icon ni ni-list-index bg-purple-dim"></em></span>
+                                                        <span class="list-apps-title">Manage Playlists</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div><!-- .nk-dropdown-body -->
+                                    </div>
+                                </li>
+                                <li class="dropdown user-dropdown">
+                                    <a href="#" class="dropdown-toggle mr-n1" data-toggle="dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <em class="icon ni ni-user-alt"></em>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                            <div class="user-card">
+                                                <div class="user-avatar">
+                                                    <span>AB</span>
+                                                </div>
+                                                <div class="user-info">
+                                                    <span class="lead-text">Abu Bin Ishtiyak</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="#"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                                <li><a href="#"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                                <li><a href="#"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                                                <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main header e -->
+            <!-- content s -->
+            <div class="nk-content p-0">
+                <div class="nk-content-inner">
+                    <div class="nk-content-body">
+                        <div class="nk-block">
+                            <div class="card mt-0">
+                                <div class="nk-chat-head">
+                                    <!--<div class="row gy-4 align-center">-->
+                                    <!--<div class="nk-chat-head-tools">-->
+                                    <div class="col-lg-3">
+                                        <div class="form-control-wrap ">
+                                            <select class="form-select form-control form-control-lg" data-search="on" id="selAgreement">
+                                                <option value="0">Select Agreement</option>
+                                                @foreach (var data in ViewBag.agreement)
+                                                {
+                                                    var bSelected = (ViewBag.SelectedAgreement == data.JobsId);
+                                                    <option value="@data.JobsId" selected="@bSelected">@data.AgreementName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-control-wrap ">
+                                            <select class="form-select form-control form-control-lg" data-search="on" id="selCampaign">
+                                                <option value="0">Select Campaign Name</option>
+                                                @foreach (var data in ViewBag.filterCampaign)
+                                                {
+                                                    var bSelected = (ViewBag.SelectedCampaign == data.ItemJobsId);
+                                                    <option value="@data.ItemJobsId" selected="@bSelected">@data.CampaignName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-control-wrap ">
+                                            <div class="form-control-select">
+                                                <select class="form-control" id="selStatus">
+                                                    <option value="">Select Status</option>
+                                                    @foreach (var data in ViewBag.status)
+                                                    {
+                                                        var bSelected = (ViewBag.SelectedStatus == data.CampaignStatuID);
+                                                        <option value="@data.CampaignStatuID" selected="@bSelected">@data.CampaignStatusAfter</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-control-wrap ">
+                                            <div class="form-control-select">
+                                                <select class="form-control" id="selCategory">
+                                                    <option value="">Select Category</option>
+                                                    @foreach (var data in ViewBag.category)
+                                                    {
+                                                        var bSelected = (ViewBag.SelectedCategory == data.CategoryID);
+                                                        <option value="@data.CategoryID" selected="@bSelected">@data.CategoryName</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="visibility:hidden">
+                                        <div class="form-control-wrap ">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-outline-primary">List View</button>
+                                                <button type="button" class="btn btn-outline-primary">Availability</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--</div>-->
+                                    <!-- .nk-chat-head-search -->
+                                </div>
+                                <div class="card-inner">
+                                    @*Start of scheduler controller*@
+                                    <ejs-schedule id="schedule" width="100%" height="650px" popupOpen="onPopupOpen" editorTemplate="#EventEditorTemplate" currentView="TimelineYear">
+                                        <e-schedule-views>
+                                            <e-schedule-view option="TimelineYear" orientation="Vertical" displayName="Year" isSelected="true">
+                                                <e-schedule-view-group enableCompactView="true" resources="@ViewBag.Resources"></e-schedule-view-group>
+                                            </e-schedule-view>
+                                            <e-schedule-view option="TimelineMonth" orientation="Vertical" displayName="Month">
+                                                <e-schedule-view-group resources="@ViewBag.Resources"></e-schedule-view-group>
+                                            </e-schedule-view>
+                                            <e-schedule-view option="TimelineWeek" orientation="Vertical" displayName="Week">
+                                                <e-schedule-view-group resources="@ViewBag.Resources"></e-schedule-view-group>
+                                            </e-schedule-view>
+                                            <e-schedule-view option="TimelineDay" orientation="Vertical" displayName="Day">
+                                                <e-schedule-view-group resources="@ViewBag.Resources"></e-schedule-view-group>
+                                            </e-schedule-view>
+                                        </e-schedule-views>
+                                        <e-schedule-resources>
+                                            <e-schedule-resource dataSource="@ViewBag.Categories" field="TaskId" title="Category" name="Categories" textField="text" idField="id" groupIDField='groupId' colorField="color" allowMultiple="true"></e-schedule-resource>
+                                        </e-schedule-resources>
+                                        <e-schedule-eventsettings dataSource="@ViewBag.datasource">
+                                            <e-eventsettings-fields id="ItemJobsId">
+                                                <e-field-subject name="CampaignName"></e-field-subject>
+                                                <e-field-starttime name="ItemStartDate"></e-field-starttime>
+                                                <e-field-endtime name="ItemEndDate"></e-field-endtime>
+                                            </e-eventsettings-fields>
+                                        </e-schedule-eventsettings>
+                                    </ejs-schedule>
+                                    <script id="EventEditorTemplate" type="text/template">
+                                        <table class="custom-event-editor" width="100%" cellpadding="5">
+                                            <tbody>
+                                                <tr style="display:none;">
+                                                    <td class="e-textlabel">Campaign Id</td>
+                                                    <td colspan="4">
+                                                        <input id="CampaignId" class="e-field e-input" type="text" value="" name="CampaignId" style="width: 100%" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">Name</td>
+                                                    <td colspan="4">
+                                                        <input id="CampaignName" class="e-field e-input" type="text" value="" name="CampaignName" style="width: 100%" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">Advertiser</td>
+                                                    <td colspan="4">
+                                                        <input id="CName" name="CName" class="e-field e-input" type="text" style="width: 100%" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">Start Date & Time</td>
+                                                    <td colspan="4">
+                                                        <input id="ItemStartDate" class="e-field" type="text" name="ItemStartDate" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">End Date & Time</td>
+                                                    <td colspan="4">
+                                                        <input id="ItemEndDate" class="e-field" type="text" name="ItemEndDate" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">Occurrence</td>
+                                                    <td colspan="4">
+                                                        <input id="Occurrence" class="e-field" type="text" name="Occurrence" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">Status</td>
+                                                    <td colspan="4">
+                                                        <input id="CampaignStatus" class="e-field" type="text" name="CampaignStatus" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="e-textlabel">Contact Number</td>
+                                                    <td colspan="4">
+                                                        <input id="ContactNumber" class="e-field e-input" type="text" name="ContactNumber" width="100%" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </script>
+                                    <script type="text/javascript">
+                                        window.appUrl = '@ViewBag.ApplicationUrl';
+                                        function onPopupOpen(args) {
+                                            if (args.type === 'Editor') {
+                                                $(args.element).find('.e-title-text').text("Edit Campaign");
+                                                $(args.element).find('.e-event-delete').css("display", "none");
+
+                                                $(args.element).find('.e-event-save').hide();
+                                                if ($(".e-save-campaign").length == 0) {
+                                                    var btnSave = $('<button>SAVE</button>').attr({ type: 'button', class: 'e-save-campaign e-control e-btn e-lib e-primary e-flat' });
+                                                    $(args.element).find(".e-event-save").after(btnSave);
+                                                }
+
+                                                $("#scheduleEditForm #CampaignId").val(args.data.ItemJobsId);
+                                                var statusElement = args.element.querySelector('#CampaignStatus');
+                                                if (!statusElement.classList.contains('e-dropdownlist')) {
+                                                    var dropDownListObject = new ej.dropdowns.DropDownList({
+                                                        placeholder: 'Choose status', value: GetStatusText(statusElement.value),
+                                                        dataSource: ['Added', 'Started', 'Approved']
+                                                    });
+                                                    dropDownListObject.appendTo(statusElement);
+                                                    statusElement.setAttribute('name', 'CampaignStatus');
+                                                }
+
+                                                var occElement = args.element.querySelector('#Occurrence');
+                                                if (!occElement.classList.contains('e-dropdownlist')) {
+                                                    var dropDownListObject = new ej.dropdowns.DropDownList({
+                                                        placeholder: 'Choose status', value: occElement.value,
+                                                        dataSource: ['Daily', 'In 2 days', 'In 3 days']
+                                                    });
+                                                    dropDownListObject.appendTo(occElement);
+                                                    occElement.setAttribute('name', 'Occurrence');
+                                                }
+
+                                                var startElement = args.element.querySelector('#ItemStartDate');
+                                                if (!startElement.classList.contains('e-datetimepicker')) {
+                                                    new ej.calendars.DateTimePicker({ value: new Date(startElement.value) || new Date() }, startElement);
+                                                }
+
+                                                var endElement = args.element.querySelector('#ItemEndDate');
+                                                if (!endElement.classList.contains('e-datetimepicker')) {
+                                                    new ej.calendars.DateTimePicker({ value: new Date(endElement.value) || new Date() }, endElement);
+                                                }
+
+
+                                            }
+                                            else if (args.type === 'QuickInfo') {
+                                                sessionStorage.setItem("selectedCampaign", JSON.stringify(args.data));
+                                                $(args.element).find('.e-delete, .e-event-delete').css("display", "none");
+                                                var btnDuplicate = $('<button></button>').attr({ type: 'button', title: 'Duplicate', class: 'e-duplicate e-icons e-btn e-lib e-flat e-round e-small e-icon-btn' });
+                                                $(btnDuplicate).append($('<span></span>').attr({ class: 'e-btn-icon e-icons e-copy-icon'}));
+                                                $(args.element).find(".e-delete").after(btnDuplicate);
+                                            }
+                                        }
+
+                                        $(document).off("click", ".e-duplicate").on("click", ".e-duplicate", function () {
+                                            var data = JSON.parse(sessionStorage.getItem("selectedCampaign"));
+                                            initDuplicateDate(data);
+                                            $(".e-duplicate-campaign-dialog").css("display", "flex");
+                                            $(".e-duplicate-campaign-dialog .e-dlg-duplicate").removeClass("e-popup-close").addClass("e-popup-open");
+                                        });
+
+                                        $(document).off("mouseup", "ul[role=listbox] li").on("mouseup", "ul[role=listbox] li", function () {
+                                            var elId = $(this).attr("id");
+                                            var selectedId = elId.split('-').pop();
+                                            if (elId.indexOf("selAgreement") > -1) {
+                                                refreshData("agreement", selectedId);
+                                            }
+                                            else if (elId.indexOf("selCampaign") > -1) {
+                                                refreshData("campaign", selectedId);
+                                            }
+                                        });
+
+                                        //$("#selAgreement").on("change", function () {
+                                        //    refreshData("agreement", $(this).val());
+                                        //});
+
+                                        //$("#selCampaign").on("change", function () {
+                                        //    refreshData("campaign", $(this).val());
+                                        //});
+
+                                        $("#selStatus").on("change", function () {
+                                            refreshData("status", $(this).val());
+                                        });
+
+                                        $("#selCategory").on("change", function () {
+                                            refreshData("category", $(this).val());
+                                        });
+
+                                        function refreshData(key, value) {
+                                            var campaignListUrl = '/Campaign/List?';
+                                            var params = getUrlParams();
+                                            params[key] = value;
+                                            campaignListUrl += createUrlParams(params);
+                                            window.location.href = campaignListUrl;
+                                        }
+
+                                        function getUrlParams() {
+                                            var vars = [], hash;
+                                            if (window.location.href.indexOf('?') > -1) {
+                                                var queryString = window.location.href.slice(window.location.href.indexOf('?') + 1);
+                                                if (queryString != "") {
+                                                    var hashes = queryString.split('&');
+                                                    for (var i = 0; i < hashes.length; i++) {
+                                                        hash = hashes[i].split('=');
+                                                        vars[hash[0]] = hash[1];
+                                                    }
+                                                }
+                                            }
+                                            return vars;
+                                        }
+
+                                        function createUrlParams(params) {
+                                            var qs = "";
+                                            for (var key in params) {
+                                                if (params.hasOwnProperty(key)) {
+                                                    qs += (qs != "") ? "&" : "";
+                                                    qs += key + "=" + params[key];
+                                                }
+                                            }
+
+                                            return qs;
+                                        }
+
+                                        function GetStatusText(code) {
+                                            var text = "";
+                                            switch (Number(code)) {
+                                                case 1:
+                                                    text = "Approved";
+                                                    break;
+                                                case 2:
+                                                    text = "Started";
+                                                    break;
+                                                case 5:
+                                                    text = "Added";
+                                                    break;
+                                            }
+                                            return text;
+                                        }
+
+                                        function GetStatusCode(text) {
+                                            var code = "";
+                                            switch (text) {
+                                                case "Approved":
+                                                    code = "1";
+                                                    break;
+                                                case "Started":
+                                                    code = "2";
+                                                    break;
+                                                case "Added":
+                                                    code = "5";
+                                                    break;
+                                            }
+                                            return code;
+                                        }
+
+                                        $(document).off("click", ".e-save-campaign").on("click", ".e-save-campaign", function () {
+                                            var campaign = {
+                                                ItemJobsId: $("#scheduleEditForm #CampaignId").val(),
+                                                CName: $("#scheduleEditForm #CName").val(),
+                                                CampaignName: $("#scheduleEditForm #CampaignName").val(),
+                                                ContactNumber: $("#scheduleEditForm #ContactNumber").val(),
+                                                ItemStartDate: $("#scheduleEditForm #ItemStartDate").val(),
+                                                ItemEndDate: $("#scheduleEditForm #ItemEndDate").val(),
+                                                CampaignStatus: GetStatusCode($("#scheduleEditForm #CampaignStatus").val()),
+                                                Occurrence: $("#scheduleEditForm #Occurrence").val(),
+                                                NetworkId: $("#networkName").data('network')
+                                            };
+                                            callAjax("POST", "Campaign/UpdateCampaign", { campaign: campaign }, null, null, false);
+                                            $(".e-schedule-dialog-container").css("display", "none");
+                                            $(".e-schedule-dialog-container .e-schedule-dialog").removeClass("e-popup-open").addClass("e-popup-close");
+                                            window.location.reload();
+                                        });
+
+                                        function onSelect()
+                                        {
+                                            var networkId = this.selectedNodes[0]
+                                            window.location.href = "/Campaign/List?networkId=" + networkId;
+                                                //$.ajax({
+                                                //    url: '/Campaign/List',
+                                                //    type: 'POST',
+                                                //    data: { "networkId": networkId },
+                                                //    success: function (result) {
+                                                //         $('#nodeDetails').html(result);
+                                                //    },
+                                                //    error: function(xhr, status) {
+                                                //        console.log(status);
+                                                //    }
+                                                //})
+                                            }
+                                    </script>
+
+                                    @*End of schduler controller*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- contente -->
+        </div>
+        <!-- wrape -->
+    </div>
+    <!-- maine -->
+</div>
+
+<partial name="_NewCampaign" />
+
+<partial name="_DuplicateCampaign" />
